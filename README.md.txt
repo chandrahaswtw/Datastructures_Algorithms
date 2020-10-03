@@ -1,1 +1,0 @@
-This is all set of data structures and algorithms written in many languages.
