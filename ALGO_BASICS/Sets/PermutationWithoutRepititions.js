@@ -1,6 +1,13 @@
 // Without Repetitions
 
-// Theory : 
+// Theory : Idea is to split the array as
+// [a,b,c,d,e]
+// [b,c,d,e] => a is out
+// [c,d,e] => b is out
+// [d,e] => c is out
+// [e] => d is out
+// In the end when it's reduced to minimum, we take possibilites with d and e => [d,e],[e,d] and we take it up
+// Now the element c will combine with array that's returned i.e., [d,e],[e,d] 
 
 function getPermutations(options) {
   options = [...options];
