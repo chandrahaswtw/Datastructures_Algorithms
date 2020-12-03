@@ -8,6 +8,9 @@
 // Write a program that MAXIMIZES the VALUE of ITEMS you put into a bag whilst
 // ensuring that you don't exceed the MAXIMUM WEIGHT which is 8 in this case
 
+
+//SOLUTION : I am looping the array twice to fetch all the possible arrays & instantly 
+
 const knapsack = (options, maxWeight) => {
     let possibleWeightCombo = [];
     for (let i = 0; i < options.length; i++) {
