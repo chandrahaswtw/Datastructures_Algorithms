@@ -11,10 +11,11 @@ const mergeSort = (arr) => {
     let rightArray = arr.slice(median);
     let sortedLeftArray = mergeSort(leftArray);
     let sortedRightArray = mergeSort(rightArray);
+    console.log(sortedLeftArray, sortedRightArray);
     let leftIndex = 0;
     let rightIndex = 0;
     let mergedArray = [];
-    while (leftIndex < sortedRightArray.length || rightIndex < sortedRightArray.length) {
+    while (leftIndex < sortedLeftArray.length || rightIndex < sortedRightArray.length) {
         if (sortedRightArray.length <= rightIndex || (sortedLeftArray[leftIndex] < sortedRightArray[rightIndex])) {
             mergedArray.push(sortedLeftArray[leftIndex]);
             leftIndex++;
