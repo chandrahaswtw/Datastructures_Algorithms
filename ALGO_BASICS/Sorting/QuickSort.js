@@ -1,33 +1,29 @@
-const quickSort = (arr) => {
-    arr = [...arr];
-    if(arr.length <= 1)
-    {
-        return arr;
+var quickSort = (arr) => {
+  let leftArray = [];
+  let pivot = [arr[0]];
+  let rightArray = [];
+
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  if (arr.length > 1) {
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < pivot) {
+        leftArray.push(arr[i]);
+      } else if (arr[i] > pivot) {
+        rightArray.push(arr[i]);
+      }
+      if (arr[i] === pivot) {
+        pivot.push(arr[i]);
+      }
     }
-    let leftArray = [];
-    let centerArray = [];
-    let rightArray = [];
-    let pivotElement =  arr.shift();
-    centerArray.push(pivotElement);
+  }
 
-    while(arr.length){
-        let compareElement = arr.shift();
-        if(compareElement === pivotElement){
-            centerArray.push(compareElement);
-        }
-        else if(compareElement > pivotElement)
-        {
-            rightArray.push(compareElement);
-        }
-        else {
-            leftArray.push(compareElement);
-        }
-    }
+  leftArray = quickSort(leftArray);
+  rightArray = quickSort(rightArray);
 
-    let sortedLeftArray = quickSort(leftArray);
-    let sortedRightArray = quickSort(rightArray);
-    return [...sortedLeftArray, ...centerArray, ...sortedRightArray];
-}
+  return [...leftArray, ...pivot, ...rightArray];
+};
 
-console.log(quickSort([5,-5,0,100,34,22,19,-10]));
-
+console.log(quickSort([-3, 10, 1, 100, -10, 22, 15]));
